@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikivallve/bootstrap-playground.git"
+  },
+  "author": "Miki Vallve",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.0.0-beta3"
