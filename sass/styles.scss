@@ -1,5 +1,6 @@
 @import "variables";
 @import "utilities";
+@import "custom";
 
 // Configuration
 @import "../node_modules/bootstrap/scss/functions";
@@ -45,3 +46,6 @@
 // Utilities
 @import "../node_modules/bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
+
+// Bootstrap Icons
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
