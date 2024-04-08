@@ -1,0 +1,39 @@
+{
+  "name": "dw3bootstrap",
+  "version": "1.0.0",
+  "description": "ejercicio de clase dw3 2023",
+  "main": "index.js",
+  "scripts": {
+    "start": "copyfiles node_modules/bootstrap/dist/js/bootstrap.bundle.min.js js/vendor/ -f -a && npm run touchJS && npm run touchSCSS",
+    "touchJS": "echo //codigo aqui > js/codigo.js",
+    "touchSCSS": "copyfiles node_modules/bootstrap/scss/bootstrap.scss sass -f -a && mv sass/bootstrap.scss sass/estilos.scss && npm run replaceBootstrapLinks && npm run sass:front",
+    "replaceBootstrapLinks": "replace-in-file sass/estilos.scss --configFile=replace-config.js",
+    "build": "npm run build:front && npm run copyAssets && sass:front",
+    "copyAssets": "npm run copyImages && npm run copyHTMLs && npm run copyCSS && npm run copyJS",
+    "copyHTMLs": "copyfiles *.html build/ -f -a",
+    "copyImages": "copyfiles img/*.* build/img -f -a",
+    "copyCSS": "node-sass src/sass/estilos.scss build/css/estilos.min.css --output-style compressed --source-map false",
+    "copyJS": "copyfiles js/*.* build/js -f -a",
+    "clean": "del build",
+    "sass:front": "node-sass sass/estilos.scss css/estilos.min.css",
+    "watch:css": "onchange \"**/*.scss\" \"**/**/*.scss\" -- npm run sass:front",
+    "watch": "npm-run-all --parallel watch:* "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "bootstrap": "^5.3.0",
+    "concat-glob-cli": "^0.1.0",
+    "copyfiles": "^2.4.1",
+    "css-loader": "^6.8.1",
+    "del-cli": "^5.0.0",
+    "html-minifier": "^4.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "replace": "^1.2.2",
+    "replace-in-file": "^7.1.0"
+  }
+}
